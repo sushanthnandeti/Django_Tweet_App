@@ -8,6 +8,13 @@
 
 {% block content %}
 
-    <h1 class="text-center"> Welcome to Django Twitter App</h1>
+    <h1 class="text-center"> Do you really want to delete your tweet?</h1>
+    <form method="post">
+        {% csrf_token%}
+        <button class=" btn btn-danger">
+            Delete
+        </button>
+        <a class="btn btn-success" href=" {% url 'tweet_list' %}"> Cancel</a>
+    </form>
 
 {% endblock %}
