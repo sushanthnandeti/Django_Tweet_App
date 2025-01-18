@@ -37,7 +37,7 @@ def tweet_edit(request, tweet_id):
             tweet.save()
             return redirect('tweet_list')
     else: 
-        form = TweetForm()
+        form = TweetForm(instance=tweet)
     return render(request, 'tweet_form.html', {'form' : form})
 
 
@@ -47,4 +47,4 @@ def tweet_delete(request, tweet_id):
     if request.method == 'POST':
         tweet.delete()
         return redirect('tweet_list')
-    return render(request, 'tweet_form.html', {'tweet' : tweet})
+    return render(request, 'tweet_confirm_delete.html', {'tweet' : tweet})
